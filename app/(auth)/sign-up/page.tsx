@@ -1,11 +1,17 @@
 'use client'
+import { CountriesField } from '@/components/forms/countries-field'
+import FooterLink from '@/components/forms/footer-link'
 import InputField from '@/components/forms/input-field'
+import SelectField from '@/components/forms/select-field'
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/navigation'
+import {
+	INVESTMENT_GOALS,
+	PREFERRED_INDUSTRIES,
+	RISK_TOLERANCE_OPTIONS,
+} from '@/constants'
 import { useForm } from 'react-hook-form'
 
 const SignUp = () => {
-	const router = useRouter()
 	const {
 		register,
 		handleSubmit,
@@ -52,7 +58,59 @@ const SignUp = () => {
 					placeholder='example@gmail.com'
 					register={register}
 					error={errors.email}
-					validation={{ required: 'Email is required', minLength: 10 }}
+					validation={{
+						required: 'Email is required',
+						pattern: /^\w+@\w+\.\w+$/,
+						message: 'Email address is required',
+					}}
+				/>
+
+				<InputField
+					name='password'
+					label='Password'
+					placeholder='Enter a strong password'
+					type='password'
+					register={register}
+					error={errors.password}
+					validation={{ required: 'Password is required', minLength: 8 }}
+				/>
+
+				<CountriesField
+					name='country'
+					label='Country'
+					control={control}
+					error={errors.country}
+					required
+				/>
+
+				<SelectField
+					name='investmentGoals'
+					label='Investment Goals'
+					placeholder='Select your investment goal'
+					options={INVESTMENT_GOALS}
+					control={control}
+					error={errors.investmentGoals}
+					required
+				/>
+
+				<SelectField
+					name='riskTolerance'
+					label='Risk Tolerance'
+					placeholder='Select your risk level'
+					options={RISK_TOLERANCE_OPTIONS}
+					control={control}
+					error={errors.riskTolerance}
+					required
+				/>
+
+				<SelectField
+					name='preferredIndustry'
+					label='Preferred Industry'
+					placeholder='Select your preferred industry'
+					options={PREFERRED_INDUSTRIES}
+					control={control}
+					error={errors.preferredIndustry}
+					required
 				/>
 
 				<Button
@@ -62,6 +120,12 @@ const SignUp = () => {
 				>
 					{isSubmitting ? 'Creating Account' : 'Start Your Investing Journey'}
 				</Button>
+
+				<FooterLink
+					text='Already have an account?'
+					linkText='Sign in'
+					href='/sign-in'
+				/>
 			</form>
 		</>
 	)
