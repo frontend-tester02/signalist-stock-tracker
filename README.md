@@ -1,9 +1,5 @@
 <div align="center">
-  <br />
-    <a href="https://youtu.be/gu4pafNCXng" target="_blank">
-      <img src="public/readme/hero.webp" alt="Project Banner">
-    </a>
-  <br />
+ <h3 align="center">Stock Market App — Alerts, Charts, AI Insights</h3>
 
   <div>
     <img src="https://img.shields.io/badge/-Next.js-black?style=for-the-badge&logoColor=white&logo=next.js&color=black"/>
@@ -17,8 +13,6 @@
 <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6"/>
 
   </div>
-
-  <h3 align="center">Stock Market App — Alerts, Charts, AI Insights</h3>
 
 </div>
 
