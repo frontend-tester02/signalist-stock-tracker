@@ -193,6 +193,13 @@ declare global {
 		setOpen: (open: boolean) => void
 	}
 
+	type UserForNewsEmail = {
+		id: string
+		email: string
+		name: string
+		country?: string
+	}
+
 	type RawNewsArticle = {
 		id: number
 		headline?: string
